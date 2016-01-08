@@ -1,0 +1,94 @@
+/***********************************************
+ * Profesor:  Edwin Maraví Pérez                *
+ *                emaravi@cjavaperu.com         *
+  **********************************************/
+
+Teniendo en cuenta el siguiente código de store procedure
+
+//MSSQL
+CREATE PROCEDURE sp_personal
+@loggin VARCHAR(10)
+AS
+SELECT * FROM PERSONAL
+WHERE loggin = @loggin
+
+//MYSQL
+CREATE PROCEDURE sp_ingreso( in param1 CHAR(10))
+     select * from administrador where chrAdmLogin=param1;
+
+CREATE PROCEDURE sp_ingreso2(in user CHAR(10),in pass CHAR(10))
+     select * from administrador where chrAdmLogin=user and chrAdmPassword=pass;
+
+set @p01 = 'admin';
+set @p02 = 'admin';
+call sp_ingreso2(@p01,@p02);
+
+
+CREATE PROCEDURE sp_insertar_curso(in cod CHAR(3),in nom VARCHAR(50), in cre INT(2))
+     insert into curso values(cod,nom,cre);
+
+set @ccod = 'c04';
+set @cnom = 'zzz';
+set @ccre =  3;
+
+call sp_insertar_curso(@ccod,@cnom,@ccre);
+
+
+sp_eliminar_curso(in cod)
+
+sp_actualizar_curso(in cod CHAR(3),in nom VARCHAR(50), in cre INT(2))
+
+sp_buscar_curo (in cod)
+
+sp_listar_cursos()
+
+
+
+
+
+//MYSQL
+CREATE PROCEDURE sp_ingresoVentas( in param1 CHAR(3))
+     select * from tb_vendedor where cod_ven=param1;
+
+set @parametro = 'v01';
+call sp_ingresoVentas(@parametro);
+
+
+
+//El código java necesario para ejecutarlos sería el siguiente.
+
+CallableStatement cs = connection.prepareCall("{CALL sp_personal(?)}");
+//Aca va el texto que se necesita pasar como parametro al sp
+callableStatement.setString(1,""); 
+
+ResultSet rs = cs.executeQuery();
+
+while(rs.next()){
+      //agregue el código que crea necesario
+}
+
+CREATE PROCEDURE sp_eliminar(in cod varchar(5))
+delete from curso where chrCurCodigo=cod;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
