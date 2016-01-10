@@ -10,6 +10,7 @@ import escuela.daos.DaoFactory;
 import escuela.entidades.Curso;
 import escuela.servicios.CursoService;
 import escuela.util.Constantes;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -111,6 +112,10 @@ public class JFCreateCurso extends javax.swing.JFrame {
         
         if(dao.create(curso) == 1){
             //JOPTIONPANE
+            txtCodigo.setText("");
+            txtNombre.setText("");
+            txtCreditos.setText("");
+            JOptionPane.showMessageDialog(null,"Se agregó el Curso " + txtCodigo.getText());
             System.out.println("Ingreso Exitoso");
         }else{
             System.out.println("Error!!!");
