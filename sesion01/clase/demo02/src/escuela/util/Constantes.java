@@ -22,8 +22,9 @@ public class Constantes {
     
     static{
 	try{
-		properties = new PropertyResourceBundle(new FileInputStream("c:/Datos.ini"));
-		OPC= Integer.parseInt(properties.getString("opc"));
+		//properties = new PropertyResourceBundle(new FileInputStream("c:/Datos.ini"));
+                properties = new PropertyResourceBundle(new FileInputStream("/home/jair/Documentos/isil/ae1_isil_2016_0/sesion01/recursos/scripts/Datos.ini"));
+		OPC= Integer.parseInt(properties.getString("OPC"));
 
 	}
 	catch(Exception e){

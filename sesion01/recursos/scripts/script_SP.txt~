@@ -43,7 +43,7 @@ sp_actualizar_curso(in cod CHAR(3),in nom VARCHAR(50), in cre INT(2))
 CREATE PROCEDURE sp_actualizar_curso(in cod CHAR(3),in nom VARCHAR(50), in cre INT(2))
      update curso set vchCurNombre=nom,intCurCreditos=cre where chrCurCodigo=cod;
 
-sp_buscar_curso (in cod)
+sp_buscar_curo (in cod)
 CREATE PROCEDURE sp_buscar_curso( in cod CHAR(3))
      select * from curso where chrCurCodigo=cod;
 

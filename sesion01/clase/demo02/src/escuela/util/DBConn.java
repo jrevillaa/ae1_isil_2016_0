@@ -16,7 +16,8 @@ public class DBConn{
 
 	static{
 	try{
-		properties = new PropertyResourceBundle(new FileInputStream("c:/Datos.ini"));
+		//properties = new PropertyResourceBundle(new FileInputStream("c:/Datos.ini"));
+                properties = new PropertyResourceBundle(new FileInputStream("/home/jair/Documentos/isil/ae1_isil_2016_0/sesion01/recursos/scripts/Datos.ini"));
 		url= properties.getString("URL");
 		driver= properties.getString("DRIVER");
 		usuario= properties.getString("USER");

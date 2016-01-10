@@ -15,9 +15,9 @@ import java.util.List;
  */
 public interface CursoService {
     
-    public void create(Curso curso);
+    public int create(Curso curso);
     public Curso find(String id);
     public List<Curso> findAll();
-    public void update(Curso curso);
-    public void delete(String id);
+    public int update(Curso curso);
+    public int delete(String id);
 }

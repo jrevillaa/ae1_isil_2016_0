@@ -11,17 +11,16 @@ import escuela.entidades.Curso;
 import escuela.servicios.CursoService;
 import escuela.util.Constantes;
 
-
 /**
  *
  * @author Alumno-CT
  */
-public class JFCreateCurso extends javax.swing.JFrame {
+public class JFUpdateCurso extends javax.swing.JFrame {
 
     /**
      * Creates new form JFCreateCurso
      */
-    public JFCreateCurso() {
+    public JFUpdateCurso() {
         initComponents();
     }
 
@@ -109,9 +108,8 @@ public class JFCreateCurso extends javax.swing.JFrame {
         curso.setNombre(txtNombre.getText());
         curso.setCreditos(Integer.parseInt(txtCreditos.getText()));
         
-        if(dao.create(curso) == 1){
-            //JOPTIONPANE
-            System.out.println("Ingreso Exitoso");
+        if(dao.update(curso) == 1){
+            System.out.println("Actualización Exitosa");
         }else{
             System.out.println("Error!!!");
         }
@@ -135,20 +133,20 @@ public class JFCreateCurso extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFCreateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFUpdateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFCreateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFUpdateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFCreateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFUpdateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFCreateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFUpdateCurso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFCreateCurso().setVisible(true);
+                new JFUpdateCurso().setVisible(true);
             }
         });
     }
