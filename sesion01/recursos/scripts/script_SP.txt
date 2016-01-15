@@ -83,12 +83,54 @@ while(rs.next()){
 
 
 
+/*****************************************************//
+
+Validar logueo
+
+CREATE PROCEDURE sp_validavendedor( in user CHAR(8), in pass CHAR(5))
+     select * from tb_vendedor where usu_ven=user and pas_ven=pass;
+
+
+Buscar distrito
+
+
+sp_buscar_distrito (in cod)
+CREATE PROCEDURE sp_buscar_distrito( in cod CHAR(3))
+     select * from tb_distrito where Cod_dis= cod;
 
 
 
 
 
 
+
+
+//**************************PRACTICA 01 ***********************************///
+
+CREATE PROCEDURE sp_insertar_clientes(in ape VARCHAR(50), in nom VARCHAR(50), in cor VARCHAR(50), in tel VARCHAR(50))
+     insert into clientes(apellidos,nombres,correo,telefono) value (ape,nom,cor,tel);
+
+
+sp_eliminar_clientes(in cod)
+CREATE PROCEDURE sp_eliminar_lcientes(in cod int)
+delete from clientes where idcliente=cod;
+
+
+sp_actualizar_clientes(in cod int,in ape VARCHAR(50), in nom VARCHAR(50), in cor VARCHAR(50), in tel VARCHAR(50))
+CREATE PROCEDURE sp_actualizar_clientes(in cod int,in ape VARCHAR(50), in nom VARCHAR(50), in cor VARCHAR(50), in tel VARCHAR(50))
+     update clientes set apellidos =ape, nombres =nom, correo =cor, telefono =tel where idCliente=cod;
+
+sp_buscar_clientes (in cod)
+CREATE PROCEDURE sp_buscar_clientes( in cod INT)
+     select * from clientes where idcliente=cod;
+
+sp_listar_clientes()
+CREATE PROCEDURE sp_listar_clientes()
+     select * from clientes;
+
+
+
+//**************************PRACTICA 01 ***********************************///
 
 
 
