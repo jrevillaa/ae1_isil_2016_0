@@ -25,7 +25,7 @@
     <body>
         <h1>Ingrese datos de Distrito a actualizar!</h1>
         <form action="sDistrito">
-            Codigo:<input name="txtCodigo" value="<%=distrito.getCodigo() %>" disabled="true"/><br/>
+            Codigo:<input name="txtCodigo" value="<%=distrito.getCodigo() %>" /><br/>
             Nombre:<input name="txtNombre"  value="<%=distrito.getNombre() %>" /><br/>
             Vendedor:<input name="txtVendedor"  value="<%=distrito.getVendendor() %>" /><br/>
             <input name="accion" type="hidden" value="actualizar"/><br/>

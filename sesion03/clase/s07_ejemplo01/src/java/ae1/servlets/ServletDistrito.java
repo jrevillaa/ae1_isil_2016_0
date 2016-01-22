@@ -44,6 +44,11 @@ public class ServletDistrito extends HttpServlet {
             String sNombre = request.getParameter("txtNombre");
             String sVendedor = request.getParameter("txtVendedor");
             //Agregar codigo necesario para realziar la actualizacion.....
+            DistritoTO distrito = new DistritoTO();
+            distrito.setCodigo(sCodigo);
+            distrito.setNombre(sNombre);
+            distrito.setVendendor(sVendedor); 
+            n = servicio.actualizarEntidad(distrito);
         }
         if(n==0)
             response.sendRedirect("error.jsp");

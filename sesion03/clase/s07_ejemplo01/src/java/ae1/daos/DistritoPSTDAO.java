@@ -49,7 +49,24 @@ public class DistritoPSTDAO implements EntidadService<DistritoTO> {
 
     @Override
     public int actualizarEntidad(DistritoTO distrito) {
-        throw new UnsupportedOperationException("Not supported yet.");
+            try {
+                con = DBConn.getConnection();
+                System.out.println(distrito.getCodigo());
+                pst = con.prepareStatement("update tb_distrito set Nom_dis =?, Cod_ven =? where Cod_dis=?");
+                pst.setString(1, distrito.getNombre());
+                pst.setString(2, distrito.getVendendor());
+                pst.setString(3, distrito.getCodigo());
+
+                pst.executeUpdate();
+
+                pst.close();
+                con.close();
+                return 1;
+            } catch (SQLException ex) {
+                System.out.println("Error " + ex.getMessage());
+            }
+
+        return 0;
     }
 
     @Override
