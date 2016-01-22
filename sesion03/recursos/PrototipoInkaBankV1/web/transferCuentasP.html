@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <center>
+        <P></P>
+        Bienvenido: Oscar Vasquez Flores
+        <P></P>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td><a href="transferCuentasP.html">|Transferencia entre cuentas propias</a></td>
+                    <td><a href="transferCuentasO.html">|Transferencia a otras cuentas</a></td>
+                    <td><a href="movimientos.html">|Revisar movimientos</a></td>
+                    <td><a href="listaCuentas.html">|Lista de cuentas</a></td>
+                    <td><a href="login.html">|Salir|</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <P></P>
+        <form action="mensaje.html" method="POST">
+            <table border="0">
+                <tbody>
+                    <tr>
+                        <td>Cuenta origen:</td>
+                        <td>
+                            <select name="cmbOrigen">
+                                <option name="n1">193-121212121-1</option>
+                                <option name="n2">193-121212121-1</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cuenta destino</td>
+                        <td>
+                            <select name="cmbDestino">
+                                <option name="n1">193-121212121-1</option>
+                                <option name="n2">193-121212121-1</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Monto</td>
+                        <td><input type="text" name="txtMonto" value="" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="Transferir" />
+        </form>
+    </center>
+</body>
+</html>

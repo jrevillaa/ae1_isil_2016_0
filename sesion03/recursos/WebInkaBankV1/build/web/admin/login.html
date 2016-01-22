@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <center>
+        <P></P>
+        Administrador de banca por internet de InkaBank
+        <h1>:::ACCESO RESTRINGIDO...SOLO ADMINISTRADOR DEL SISTEMA:::</h1>
+        <form action="ServletController" method="POST">
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td>Usuario:</td>
+                        <td><input type="text" name="txtUsuario" value="administrador" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="txtPassword" value="123" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!--Accion a realizar-->
+            <input type="hidden"  name="hidAccion" value="login"/>
+            <!--*****************-->
+            
+            <input type="submit" value="Enviar" />
+        </form>
+    </center>
+</body>
+</html>

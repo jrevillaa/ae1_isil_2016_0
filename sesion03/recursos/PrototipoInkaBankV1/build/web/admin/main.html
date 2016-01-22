@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+    <center>
+        <table border="0">
+            <tbody>
+                <tr>
+                    <td><a href="login.html">|Salir|</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <P></P>
+        Mantenimiento de clientes
+        <P></P>
+        <form id="frmPrincipal" action="registrar.html" method="POST">
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td>#</td>
+                        <td>Codigo</td>
+                        <td>Nombres</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="opcion" value="C0001"/></td>
+                        <td>C0001</td>
+                        <td>Oscar Vasquez Flores</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="opcion" value="C0002" /></td>
+                        <td>C0009</td>
+                        <td>Juan Perez Perez</td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="hidden"  name="hidAccion" value=""/>
+            <input type="button" value="Registrar" onclick="doAccion('registrar')"/>
+            <input type="button" value="Actualizar" onclick="doAccion('actualizar')"/>
+            <input type="button" value="Eliminar" />
+            <input type="button" value="Ver detalles" />
+        </form>
+    </center>
+    
+    <script language="javascript">
+        function doAccion(accion){
+            if(accion=="registrar"){
+                frmPrincipal.action="registrar.html";
+                frmPrincipal.hidAccion="registrar";
+                frmPrincipal.submit();
+            }
+            else if(accion=="actualizar"){
+                frmPrincipal.action="actualizar.html";
+                frmPrincipal.hidAccion="actualizar";
+                frmPrincipal.submit();
+            } 
+            else if(accion=="eliminar"){
+                alert("FALTA!!!");
+            }
+        }
+    </script>    
+</body>
+</html>
