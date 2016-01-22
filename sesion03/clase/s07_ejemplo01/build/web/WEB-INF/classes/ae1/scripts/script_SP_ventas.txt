@@ -1,0 +1,20 @@
+/***********************************************
+ * Profesor:  Edwin Maravi Perez                *
+ *                emaravi@cjavaperu.com         *
+  **********************************************/
+
+Teniendo en cuenta el siguiente codigo de store procedure
+
+//validacion de vendedor
+
+CREATE PROCEDURE sp_validavendedor( in param1 CHAR(8),in param2 CHAR(5))
+     select * from tb_vendedor where usu_ven=param1 and pas_ven=param2;
+
+
+set @param1 = 'vdiaz000';
+set @param2 = 'aaaaa';
+
+
+call sp_validavendedor(@param1,@param2);
+
+
