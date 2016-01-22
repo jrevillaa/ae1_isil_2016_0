@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 21/01/2016, 08:13:42 PM
-    Author     : Alumno-CT
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +6,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Ingreso al sistema</h1>
+        <form action="sValidador">
+            Usuario:<input type="text" name="txtUsuario"><br>
+            Password:<input type="password" name="txtPassword"><br>
+            <input type="submit" value="Validar">
+                
+        </form>
     </body>
 </html>
