@@ -1,4 +1,12 @@
+<%@page import="ae1.entidades.Administrador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    HttpSession sesion = request.getSession();
+    Administrador admin =(Administrador)sesion.getAttribute("administrador");
+    if(admin != null){
+    response.sendRedirect("principal.jsp");
+    }else{
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,3 +23,4 @@
         </form>
     </body>
 </html>
+<% }%>

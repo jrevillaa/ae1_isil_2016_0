@@ -5,6 +5,10 @@
  */
 package ae1.controladores;
 
+import ae1.daos.DaoFactory;
+import ae1.entidades.Administrador;
+import ae1.servicios.AdministradorService;
+import ae1.util.Util;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -34,6 +39,17 @@ public class Validador extends HttpServlet {
            //lectura de datos 
         String us = request.getParameter("txtUsuario");
         String ps = request.getParameter("txtPassword");
+        DaoFactory fabrica = DaoFactory.getInstance();
+        AdministradorService admin = fabrica.getAdministradorDao(Util.MYSQL);
+        Administrador ad = admin.validar(us, ps);
+        HttpSession sesion = request.getSession();//obtienes la sesiòn del cliente
+        if(ad != null){
+            sesion.setAttribute("administrador", ad);
+            response.sendRedirect("principal.jsp");
+        }else{
+            response.sendRedirect("error.jsp");
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

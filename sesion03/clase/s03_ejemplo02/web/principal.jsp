@@ -1,8 +1,11 @@
-<%-- 
-    Document   : index
-    Created on : 21/01/2016, 08:03:16 PM
-    Author     : Alumno-CT
---%>
+<%@page import="ae1.entidades.Administrador"%>
+<%
+    HttpSession sesion = request.getSession();
+    Administrador admin =(Administrador)sesion.getAttribute("administrador");
+    if(admin == null){
+    response.sendRedirect("error.jsp");
+    }else{
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Bienvenido <%= admin.getNombre() %> </h1>
     </body>
 </html>
+<% }%>
