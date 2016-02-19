@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable border="1" value="#{cursoMb.lista}" var="cur">
+                <h:column>
+                    <h:outputText value="#{cur.chrCurCodigo}"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{cur.vchCurNombre}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{cur.intCurCreditos}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="X" action="#{cursoMb.eliminar(cur.chrCurCodigo)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="A" action="#{cursoMb.actualizar(cur)}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

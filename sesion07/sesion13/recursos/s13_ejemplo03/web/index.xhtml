@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+	<h:head>
+		<link href="css/estilo.css" rel="stylesheet" type="text/css" />
+		<title>Facelet Title</title>
+	</h:head>
+	<h:body>
+		
+			<h1 align="center">ACCESO AL SISTEMA</h1>
+			<h:form>
+				<h:panelGrid columns="2" style="margin: 0 auto 0 auto">
+
+					<h:outputLabel value="Usuario"/>
+					<h:inputText
+						styleClass="campoEditar"
+						maxlength="15"
+						size="15"
+						value="#{ventaBean.usuario}"/>
+
+					<h:outputLabel value="Clave"/>
+					<h:inputSecret
+						styleClass="campoEditar"
+						maxlength="10"
+						size="15"
+						value="#{ventaBean.clave}"/>
+
+					<h:outputText />
+					<h:commandButton
+						styleClass="boton"
+						value="Ingresar"
+						action="#{ventaBean.doIngresar}"/>
+
+				</h:panelGrid>
+
+				<h:outputText
+					styleClass="error"
+					value="#{ventaBean.mensaje}"/>
+
+			</h:form>
+		
+	</h:body>
+</html>
+

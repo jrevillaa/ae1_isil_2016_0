@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Principal</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText id="txtNombre" 
+                          value="Bienvenido: #{administradorMb.nombre}"/>
+            <br/>
+            <h:commandLink value="volver" action="index"/>
+        </h:form>
+        
+        <h1>Mantenimiento de alumnos</h1>
+        <h:form>
+            código:<h:inputText id="txtCodigo"
+                                required="true"
+                                requiredMessage="obligatorio"
+                                value="#{alumnoMb.curso.chrAluCodigo}">
+                <f:validateLength maximum="10" minimum="5"/>                 
+            </h:inputText>
+            <h:message for="txtCodigo" style="color: red"/>
+            <br/>
+            Nombres:<h:inputText id="txtNombre"
+                                required="true"
+                                requiredMessage="obligatorio"
+                                value="#{alumnoMb.curso.vchAluNombres}">
+                <f:validateLength maximum="50" minimum="1"/>                 
+            </h:inputText>
+            <h:message for="txtNombre" style="color: red"/>
+            <br/>
+            Apellidos:<h:inputText id="txtApellido"
+                                required="true"
+                                requiredMessage="obligatorio"
+                                value="#{alumnoMb.curso.vchAluApellidos}">
+                <f:validateLength maximum="50" minimum="0"/>                 
+            </h:inputText>
+            <h:message for="txtApellido" style="color: red"/>
+            <br/>
+            Fecha de Nacimiento:<h:inputText id="txtFecha"
+                                required="true"
+                                requiredMessage="obligatorio"
+                                value="#{alumnoMb.curso.dtmAluFechaNac}">
+                <f:validateLength maximum="500" minimum="0"/>      
+
+                <f:convertDateTime pattern="dd-mm-yyyy" />
+            </h:inputText>
+            <h:message for="txtFecha" style="color: red"/>
+            <br/>
+            Sexo:<h:inputText id="txtSexo"
+                                required="true"
+                                requiredMessage="obligatorio"
+                                value="#{alumnoMb.curso.chrAluSexo}">
+                <f:validateLength maximum="5" minimum="0"/>                 
+            </h:inputText>
+            <h:message for="txtSexo" style="color: red"/>
+            <br/>
+            <h:commandButton value="Grabar" action="#{alumnoMb.grabar}"/>
+            
+            
+            <h:dataTable border="1" value="#{alumnoMb.lista}" var="cur">
+                <h:column>
+                    <h:outputText value="#{cur.chrAluCodigo}"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{cur.vchAluNombres}"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{cur.vchAluApellidos}"/>
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{cur.dtmAluFechaNac}">
+                        <f:convertDateTime pattern="dd-mm-yyyy" />
+                        </h:inputText>
+                    
+                </h:column>
+                <h:column>
+                    <h:inputText value="#{cur.chrAluSexo}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="X" action="#{alumnoMb.eliminar(cur.chrAluCodigo)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="A" action="#{alumnoMb.actualizar(cur)}"/>
+                </h:column>
+            </h:dataTable>
+           
+        </h:form>
+        
+    </h:body>
+</html>
+

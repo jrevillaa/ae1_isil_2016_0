@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition>
+		<style type="text/css">
+			#div1{
+				width: 100%;
+			}
+		</style>
+		<h:form>
+			<div id="div1">
+				<table width="100%">
+					<tr>
+						<td>
+							<h:graphicImage value="./../img/logo.jpg" height="60" width="60"/>
+						</td>
+						<td align="right">
+							<p>Usuario: <h:outputText value="#{ventaBean.empleado.nombre}" /> </p>
+							<p> <h:commandLink value="Salir" action="#{ventaBean.doSalir}"/> </p>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="div1">
+				<h:commandLink value="Ventas" action="ventas" /> &nbsp;
+				<h:commandLink value="Clientes" action="mantClientes" />
+			</div>
+		</h:form>
+	</ui:composition>
+
+</html>
+

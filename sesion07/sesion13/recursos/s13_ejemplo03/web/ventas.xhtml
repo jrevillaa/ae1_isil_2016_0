@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core">
+
+	<body>
+
+		<ui:composition template="./plantilla/PlantillaGeneral.xhtml">
+
+			<ui:define name="content">
+				<h:form>
+					<h:outputLabel value="Cliente"/>
+					<h:selectOneMenu value="#{ventaBean.idcliente}">
+						<f:selectItems value="#{ventaBean.listaClientes}"/>
+					</h:selectOneMenu>
+					<table>
+						<tr>
+							<td>Articulo</td>
+							<td>Precio</td>
+							<td>Cant</td>
+							<td>Subtotal</td>
+							<td rowspan="2"></td>
+						</tr>
+						<tr>
+							<td>
+								<h:selectOneMenu
+									value="#{ventaBean.idArticulo}"
+									onchange="submit();"
+									valueChangeListener="#{ventaBean.modificarPrecio}">
+									<f:selectItems value="#{ventaBean.listaArticulos}"/>
+								</h:selectOneMenu>
+							</td>
+							<td>
+								<h:outputText value="#{ventaBean.precio}">
+									<f:convertNumber pattern="###,##0.00"/>
+								</h:outputText>
+							</td>
+							<td>
+								<h:inputText
+									maxlength="5"
+									size="5"
+									onchange="submit();"
+									valueChangeListener="#{ventaBean.modificarCantidad}"
+									value="#{ventaBean.cant}"/>
+							</td>
+							<td>
+								<h:outputText value="#{ventaBean.subtotal}">
+									<f:convertNumber pattern="###,##0.00"/>
+								</h:outputText>
+							</td>
+							<td rowspan="2">
+								<h:commandButton value="Agregar" action="#{ventaBean.doAgregarItem}"/>
+							</td>
+						</tr>
+					</table>
+
+					<h:dataTable border="1" value="#{ventaBean.carrito.items}" var="r">
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo" />
+							</f:facet>
+							<h:outputText value="#{r.codigo}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre" />
+							</f:facet>
+							<h:outputText value="#{r.nombre}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Precio" />
+							</f:facet>
+							<h:outputText value="#{r.precio}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cant" />
+							</f:facet>
+							<h:outputText value="#{r.cant}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Subtotal" />
+							</f:facet>
+							<h:outputText value="#{r.subtotal}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Acción" />
+							</f:facet>
+							<h:commandLink value="Eliminar" action="#{ ventaBean.doEliminarItem( r.id ) }" />
+						</h:column>
+					</h:dataTable>
+
+					<h:panelGrid columns="3">
+
+						<h:outputLabel value="Importe:"/>
+						<h:outputText value="#{ventaBean.carrito.importe}">
+							<f:convertNumber pattern="###,##0.00"/>
+						</h:outputText>
+						<h:outputText />
+
+						<h:outputLabel value="Impuesto:"/>
+						<h:outputText value="#{ventaBean.carrito.impuesto}">
+							<f:convertNumber pattern="###,##0.00"/>
+						</h:outputText>
+						<h:outputText />
+
+						<h:outputLabel value="Total:"/>
+						<h:outputText value="#{ventaBean.carrito.total}">
+							<f:convertNumber pattern="###,##0.00"/>
+						</h:outputText>
+						<h:commandButton value="Grabar Pedido" action="#{ventaBean.doGrabar}"/>
+						
+					</h:panelGrid>
+				</h:form>
+
+				<h:outputText value="#{ventaBean.mensaje}"/>
+			</ui:define>
+
+		</ui:composition>
+
+	</body>
+</html>
